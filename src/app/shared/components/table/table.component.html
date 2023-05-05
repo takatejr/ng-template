@@ -1,0 +1,59 @@
+<ng-container *ngIf="columns.colsWithActions.length">
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Type keyword...</mat-label>
+            <input #input (keyup)="applyFilter($event)" matInput placeholder="Type keyword..." />
+            <figure class="search-bar-filter-icon">
+                <svg fill="none" height="14" viewBox="0 0 16 14" width="16" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.6667 1H1.33334L6.66667 7.30667V11.6667L9.33334 13V7.30667L14.6667 1Z"
+                        stroke="#ACB5BD"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </figure>
+        </mat-form-field>
+    </form>
+    <table [dataSource]="dataSource" [fixedLayout]="true" class="w-100" mat-table matSort>
+        <ng-container *ngFor="let column of columns.colsWithActions">
+            <ng-container [matColumnDef]="column.title">
+                <th *matHeaderCellDef mat-header-cell [mat-sort-header]="column.key">
+                    {{ column.title }}
+                    <!--                <img class="sort-icon" src="assets/svgs/sort.svg" />-->
+                </th>
+                <td (click)="column.action([$event, 1])" *matCellDef="let element" mat-cell>
+                    {{ element[column.key] }}
+                </td>
+            </ng-container>
+        </ng-container>
+
+        <tr *matHeaderRowDef="columns.literalColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: columns.literalColumns" mat-row></tr>
+
+        <tr *matNoDataRow class="mat-row">
+            <td class="mat-cell" colspan="4">No data matching the filter "{{ input.value }}"</td>
+        </tr>
+    </table>
+    <mat-toolbar>
+        <mat-paginator (page)="detectTableChanges($event)" [pageSizeOptions]="[5, 10, 20, 50]" pageSize="10"></mat-paginator>
+        <mat-form-field appearance="fill" class="my-b-5px">
+            <mat-select [formControl]="paginationControl">
+                <mat-option (click)="selectPage(page)" *ngFor="let page of paginateCounter$ | async" [value]="page">
+                    {{ page }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <span>of {{ (paginateCounter$ | async)?.length }} pages</span>
+        <button (click)="previousPage()" [disabled]="hasPreviousPage$ | async" class="paginate-button">
+            <svg cursor="pointer" fill="none" height="10" transform="rotate(180)" viewBox="0 0 6 10" width="6" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10V0L6 5L0 10Z" />
+            </svg>
+        </button>
+        <button (click)="nextPage()" [disabled]="hasNextPage$ | async" class="paginate-button">
+            <svg cursor="pointer" fill="none" height="10" viewBox="0 0 6 10" width="6" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10V0L6 5L0 10Z" />
+            </svg>
+        </button>
+    </mat-toolbar>
+</ng-container>

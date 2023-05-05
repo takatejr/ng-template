@@ -30,11 +30,6 @@ select:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-html,
-body {
-    height: calc(100vh - calc(100vh - 100%));
-}
-
 *,
 *::before,
 *::after {

@@ -1,0 +1,13 @@
+<div class="w-44 h-44 bg-amber-200">
+    <div>
+        <header class="border-2 border-solid border-black">
+            {{ header }}
+        </header>
+        <section>
+            <ng-content></ng-content>
+        </section>
+    </div>
+</div>
+
+<ng-template #loader>loader</ng-template>
+<ng-template #error>error</ng-template>

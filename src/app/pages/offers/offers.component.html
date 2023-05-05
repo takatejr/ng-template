@@ -1,0 +1,16 @@
+<div>
+    <p>Hederek ofert</p>
+    <nav>
+        <ul class="flex gap-4 text-xl font-bold">
+            <li>
+                <button class="cursor-pointer" routerLinkActive="active" [routerLink]="'/offers/create'" ariaCurrentWhenActive="page">Stwórz ofertę</button>
+            </li>
+            <li>
+                <button class="cursor-pointer" routerLinkActive="active" [routerLink]="'/offers/list'" ariaCurrentWhenActive="page">Lista</button>
+            </li>
+        </ul>
+    </nav>
+    <div class="border border-solid border-blue-300 px-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>

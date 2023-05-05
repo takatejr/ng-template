@@ -1,0 +1,12 @@
+<mat-stepper linear #stepper>
+    <ng-container *ngFor="let step of steps">
+        <mat-step>
+            <ng-template matStepLabel>{{ step.label }}</ng-template>
+            <ng-container *ngIf="step.component; then step.component"></ng-container>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext [disabled]="step?.form?.invalid">Next</button>
+            </div>
+        </mat-step>
+    </ng-container>
+</mat-stepper>

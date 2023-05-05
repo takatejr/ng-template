@@ -1,0 +1,100 @@
+::ng-deep {
+    //select page styles
+    .mat-form-field-infix {
+        width: 45px !important;
+        // padding: 0 !important;
+        // border: none;
+    }
+
+    .mat-paginator-page-size-select {
+        margin: 0 !important;
+        padding: 0 8px;
+    }
+
+    .mat-select-value-text {
+        white-space: nowrap;
+        font-family: Work Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #041b29;
+    }
+
+    .mat-toolbar {
+        background-color: transparent;
+        font-family: Work Sans;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0.08em;
+    }
+
+    .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+        transform: translateY(-25%) !important;
+        height: 25px !important;
+        position: relative;
+        right: 10px;
+    }
+
+    .mat-form-field-wrapper {
+        padding-bottom: 0 !important;
+    }
+
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+        background-color: transparent;
+    }
+
+    .mat-toolbar-row,
+    .mat-toolbar-single-row {
+        padding: 0 !important;
+        display: grid !important;
+        grid-template-columns: 20fr 1fr 2fr 1fr 1fr !important;
+    }
+
+    .mat-paginator-container {
+        display: grid !important;
+        grid-template-columns: 200px 11fr;
+        padding: 0 !important;
+    }
+
+    .mat-form-field-underline {
+        width: 0 !important;
+    }
+
+    .mat-icon-button {
+        display: none !important;
+    }
+
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+        height: 0 !important;
+    }
+
+    .mat-paginator-page-size {
+        width: 200px !important;
+        margin: 0 0 13px 0px;
+        justify-content: space-evenly;
+    }
+
+    .mat-paginator-range-label {
+        margin: 0 !important;
+    }
+
+    .mat-paginator-range-label::after {
+        content: "items";
+    }
+
+    .mat-paginator-range-actions {
+        display: grid !important;
+        align-items: center !important;
+        width: 100%;
+        justify-content: space-between;
+        grid-template-columns: 30fr 1fr 1fr;
+    }
+}

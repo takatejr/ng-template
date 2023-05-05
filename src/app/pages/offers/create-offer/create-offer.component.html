@@ -1,0 +1,8 @@
+<h1>Stwórz ofertę praktyk / stazu</h1>
+<section class="h-72">
+    <form [formGroup]="createOfferForm" class="h-full flex flex-col">
+        <app-input [title]="'Tytuł'" [formField]="createOfferForm.get('title')"></app-input>
+        <textarea formControlName="description"></textarea>
+        <button (click)="createOffer()">Stwórz</button>
+    </form>
+</section>

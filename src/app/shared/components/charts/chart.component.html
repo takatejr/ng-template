@@ -1,0 +1,3 @@
+<ng-container *ngFor="let xd of data.data">{{ xd?.ads }}</ng-container>
+<ng-container *ngIf="data?.isError">error</ng-container>
+<ng-container *ngIf="data?.isLoading">loader</ng-container>

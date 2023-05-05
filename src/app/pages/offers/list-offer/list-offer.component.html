@@ -1,0 +1,18 @@
+<div class="px-8 flex flex-row flex-wrap gap-2">
+    <ng-container *ngFor="let offer of offers$ | async">
+        <div
+            mat-ripple
+            (click)="goToOffer(offer.uuid)"
+            class="shadow-2xl rounded-md text-white p-2 h-40 w-40 font-bold text-sm bg-green-600 cursor-pointer hover:opacity-90 hover:transition-opacity"
+        >
+            <section class="flex flex-col items-start">
+                <div class="flex justify-start font-bold">
+                    {{ offer?.title }}
+                </div>
+                <div class="pt-2">
+                    {{ offer?.description }}
+                </div>
+            </section>
+        </div>
+    </ng-container>
+</div>
